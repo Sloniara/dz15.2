@@ -23,10 +23,10 @@ class LogMixin:
         super().__init__(*args, **kwargs)
         self.log_created_object()
 
-    def log_created_object(self):
+    def __repr__(self):
         class_name = self.__class__.__name__
         attributes = ', '.join([f"{key}={value}" for key, value in self.__dict__.items()])
-        print(f"Создан объект класса {class_name}: {attributes}")
+        return f"Создан объект класса {class_name}: {attributes}"
 
 # Класс Смартфон
 class Smartphone(AbstractProduct, LogMixin):
